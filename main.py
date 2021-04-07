@@ -1,15 +1,16 @@
 import pandas as pd
-
-df_dron = pd.read_excel(r"C:\Users\20361433069\Desktop\becas\Listado Examen Becarias GobCba M02_DNT_ManejoDrones (1).xlsx")
-df_robotica = pd.read_excel(r"C:\Users\20361433069\Desktop\becas\Calificaciones SEU_DNT_M03_IntroRob_Becarias.xlsx")
-df_programacion = pd.read_excel(r"C:\Users\20361433069\Desktop\becas\Calificaciones M01_DNT_IntroProg_BecasGobCba_V01 (1).xlsx")
+ruta = r"C:\Users\20361433069\Desktop\becas"
+df_dron = pd.read_excel(ruta +"\Listado Examen Becarias GobCba M02_DNT_ManejoDrones (1).xlsx")
+df_robotica = pd.read_excel(ruta +"\Calificaciones SEU_DNT_M03_IntroRob_Becarias.xlsx")
+df_programacion = pd.read_excel(ruta +"\Calificaciones M01_DNT_IntroProg_BecasGobCba_V01 (1).xlsx")
 
 df_dron['Beca'] = 'Manejo de dron'
 df_robotica['Beca'] = 'Robotica'
 df_programacion['Beca'] = 'Programacion'
 
-new_lista = pd.concat([df_dron, df_robotica, df_programacion])
-new_lista.to_excel("Nomina de becas.xlsx", index = False, sheet_name = "hoja1", header = 1)
+df_new_lista = pd.concat([df_dron, df_robotica, df_programacion])
+df_new_lista.iloc[:, 0:5]
+df_new_lista.to_excel("Nomina de becas.xlsx", index = False, sheet_name = "hoja1", header = 1)
 
 
 
